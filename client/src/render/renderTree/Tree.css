@@ -1,0 +1,25 @@
+.Tree-box{
+    margin-left:1rem;
+    margin-top:1rem;
+    position:relative; 
+}
+
+.Tree-open-icon{
+    font-size:3rem;
+    margin-top:-1.2rem;
+    margin-right:1rem;
+}
+
+.Tree-close-icon{
+    font-size:2.6rem;
+    margin-top:-1.2rem;
+    margin-right:1rem;
+}
+
+.Tree-p{
+    display:inline;
+    white-space:nowrap;
+    position:absolute;
+    left:3.2rem;
+    top:-0.7rem; 
+}

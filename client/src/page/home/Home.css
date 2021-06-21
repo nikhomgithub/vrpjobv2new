@@ -1,0 +1,57 @@
+.home-hero {
+    height:100vh; width:100vw;
+    /*opacity: 0.6;*/
+    background: url("../../images/waterfall.jpg") center/cover no-repeat transparent;
+    position:fixed;
+    top:0;left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index:1;
+  }
+.home-bg-screen{
+    height:100%; width:100%;
+    background-color: rgba(150,150,150,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.home-box{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap:wrap;
+
+}
+
+.home-link{
+    width:8rem;
+    height:8rem;
+    border: gray solid 1px;
+    background: rgb(236,170,120);
+    background: linear-gradient(0deg, rgba(236,170,120,1) 14%, rgba(255,255,255,1) 94%);
+    display:grid;
+    place-items:center;
+    border-radius: 30%;
+    box-shadow: 5px 5px 20px rgb(10,10,10);
+    margin:1rem;
+}
+.home-link:hover{
+    /*background:#F0BE98;*/
+    background:#EBE30E;
+    border:1px solid #EBE30E;
+}
+.home-icon{
+    font-size:5rem;
+}
+  /*
+  .roomsHero {
+    background-image: url("./images/room-2.jpeg");
+    min-height: 60vh;
+  }
+  */
+  

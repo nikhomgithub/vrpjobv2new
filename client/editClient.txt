@@ -1,0 +1,12 @@
+12 Jun 2021
+ - แก้ไข util/axiosUtil ฟังก์ชัน genArrayForFilterAxios
+   เพิ่มเงื่อนไขในส่วน ของ templateType == boolean เข้าไป 
+ 
+ - ในส่วนของ Galleryone_add แก้ไขปรับการแสดงรูป กำหนด maxWidth:"30vh"
+
+ -  ในส่วนของ Galleryone แก้ไขปรับการแสดงรูป width, height ขอบ <img/> และ parnt
+     overflowX:"auto" overflowY:"hidden" 
+     ใส่ตัวเลขแสดงจำนวนรูปในกรณีรูป มากกว่า 1 
+ - สร้าง card ขึ้นมา ใน Job 
+
+ - แก้ไข  ModalFilter ให้รับ Select ได้

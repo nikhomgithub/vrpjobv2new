@@ -1,0 +1,11 @@
+version: '3'
+services:
+  mymongo:
+    container_name: mymongo
+    image: mongo
+    expose: 
+      - '27017'
+    ports: 
+      - '27017:27017'
+    volumes:
+      - ./mydb:/data/db

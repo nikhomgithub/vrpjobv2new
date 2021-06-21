@@ -1,0 +1,5 @@
+server1/node_modules/
+client/node_modules/
+mongo/mydb/
+server1/upload/
+letsencrypt/

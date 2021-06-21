@@ -1,0 +1,26 @@
+
+
+            UseEffect isSecond false
+ModalForm.js:140 useEffect formInputState
+ModalForm.js:141 {id: "", date: "", title: "", name: "", password: "", …}
+AppModalForm.js:25 showAdd = true
+ModalForm.js:33 ModalForm
+StateUtil.js:230 genRefAndValue
+ModalForm.js:65 genFormInputState
+StateUtil.js:230 genRefAndValue
+renderFormTable.js:17 renderFormTable
+ModalForm.js:43 UseEffect isSecond true
+ModalForm.js:33 ModalForm
+StateUtil.js:230 genRefAndValue
+ModalForm.js:65 genFormInputState
+StateUtil.js:230 genRefAndValue
+renderFormTable.js:17 renderFormTable
+ModalForm.js:140 useEffect formInputState
+ModalForm.js:141 {id: "", date: "", title: "", name: "userc", password: "", …}
+ModalForm.js:33 ModalForm
+StateUtil.js:230 genRefAndValue
+ModalForm.js:65 genFormInputState
+StateUtil.js:230 genRefAndValue
+renderFormTable.js:17 renderFormTable
+ModalForm.js:140 useEffect formInputState
+ModalForm.js:141 {id: "", date: "", title: "", name: "userc", password: "userc", …}

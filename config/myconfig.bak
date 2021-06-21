@@ -1,0 +1,88 @@
+upstream project{
+    server server_vrpjob:3001;
+}
+
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name  vrpshop.net www.vrpshop.net;
+    #server_name  localhost;
+    root   /usr/share/nginx/html;
+    index index.html;
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ /(home+[\/]+[a-zA-Z0-9]*|home){
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html;
+    }
+
+    location /yahoo {
+    #    proxy_pass http://127.0.0.1;
+        proxy_pass http://www.yahoo.com;
+    }
+    location /test { proxy_pass http://project; }
+    location /upload { proxy_pass http://project; }
+
+    location = /pageshop { 
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html; 
+    }
+    location = /pageuser { 
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html; 
+    }
+    location = /pagebasicdata { 
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html; 
+    }
+    location = /pagejob { 
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html; 
+    }
+
+    location /shop { proxy_pass http://project; }
+    location /user { proxy_pass http://project; }
+    location /basicdata { proxy_pass http://project; }
+    location /job { proxy_pass http://project; }
+    
+    location /vrp1get { proxy_pass http://project; }
+    location /vrp2get { proxy_pass http://project; }
+    location /vrp3get { proxy_pass http://project; }
+    location /vrp4get { proxy_pass http://project; }
+
+    location /vrp1rec { proxy_pass http://project; }
+    location /vrp2rec { proxy_pass http://project; }
+    location /vrp3rec { proxy_pass http://project; }
+    location /vrp4rec { proxy_pass http://project; }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }   
+}
+
+
+
+
+
+    
+
+
+
+

@@ -1,0 +1,11 @@
+version: '3'
+services:
+  nginx_test:
+    container_name: mynginx_test
+    image: nikhomdoc/sugar_nginx2
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ../letsencrypt:/ect/letsencrypt
+      - ../config:/etc/nginx/conf.d

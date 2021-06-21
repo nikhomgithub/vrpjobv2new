@@ -1,0 +1,46 @@
+.TableFlex-head{
+    background-color: #73a1a7;   
+    min-height:2.7rem;
+}
+
+.TableFlex-head>div{
+    border-left:var(--borderLightGray);
+}
+
+.TableFlex-body{
+    min-height:2.7rem;
+    z-index: -2;
+}
+
+.TableFlex-body:nth-child(odd) {
+    background:var(--cPureWhite);
+}
+  
+.TableFlex-body:nth-child(even) {
+    background:var(--cWhite);
+}
+.TableFlex-body>div{
+    border-left:var(--borderLightGray);
+}
+
+/*---------*/
+.TableGrid-head{
+    background-color: #7da097;   
+}
+.TableGrid-head>div{
+    border-left:var(--borderLightGray);
+}
+.TableGrid-body{
+    z-index: -2;
+}
+
+.TableGrid-body:nth-child(odd) {
+    background:var(--cPureWhite);
+}
+  
+.TableGrid-body:nth-child(even) {
+    background:var(--cWhite);
+}
+.TableGrid-body>div{
+    border-left:var(--borderLightGray);
+}

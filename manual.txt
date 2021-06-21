@@ -1,0 +1,32 @@
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-debian-10
+https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/
+https://help.dreamhost.com/hc/en-us/articles/216454967-How-to-reload-and-restart-Nginx-Dedicated-servers-only-
+https://dev.to/jpblancodb/configure-let-s-encrypt-nginx-in-ubuntu-bph
+https://dnslookup.online/
+https://www.youtube.com/watch?v=zJPlyjfV4C0
+https://www.youtube.com/watch?v=zJPlyjfV4C0
+
+$ cat /etc/os-release
+$ apt-get update
+$ nginx -t
+$ /etc/init.d/nginx reload
+$ apt-get install python-certbot-nginx
+$ apt-get install cron
+$ apt-get install nano
+$ apt-get install ufw
+$ certbot --nginx -d your_domain -d www.your_domain
+
+$certbot renew --dry-run
+
+create image from container which from std image 
+$sudo docker commit 643442b29a3f test/test
+
+$sudo docker login 
+    Username:nikhomdoc
+    password:boxbox
+
+push to dockerhub
+$sudo docker push test/test 
+////////////////////////////////////////
+create docker network between 2 docker-compose.yml
+$ docker network create external-network-vrpjob

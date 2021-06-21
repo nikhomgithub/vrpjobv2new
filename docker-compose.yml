@@ -1,0 +1,31 @@
+version: '3'
+services:
+  server_vrpjob:
+    container_name: myserver_vrpjob
+    restart: always
+    build: ./server1
+    ports:
+      - '3001:3001'
+    environment:
+      - MONGO_URI=mongodb://mongo_vrpjob:27017/vrpjob
+      - PORT=3001
+      - JWT_SECRET=jwtSecret
+    volumes:
+      - ./server1/upload:/usr/src/app/upload
+      - ./server1/data/backupData:/usr/src/app/data/backupData
+      - ./server1/controllers:/usr/src/app/controllers
+    links:
+      - mongo_vrpjob
+  mongo_vrpjob:
+    container_name: mymongo_vrpjob
+    restart: always
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./mongo/mydb:/data/db
+
+networks: 
+  default: 
+    external: 
+      name: external-network-vrpjob

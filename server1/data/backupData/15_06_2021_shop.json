@@ -1,0 +1,12 @@
+{"table":[{"_id":"60c7572c92d1f6001986d35a",
+          "shopName":"shopa",
+          "password":"$2a$10$DCSmPSN5aKiQwaqpyO1.1.PTOsgAdP.dUJJW04hWJrE83OPzJveJm",
+          "active":true,"code":"fb4a019d-25e9-4eed-93cc-635899f54aa9",
+          "dateIn":"2021-06-14T00:00:00.000Z",
+          "ownerName":"ownera",
+          "ownerPassword":"$2a$10$nZItFtKuPcKY5GkRm5LLpOD781mA3buYIY.wx/rTtYoSYC2.htfZq",
+          "ownerActive":true,
+          "ownerCode":"cccaed52-3b6a-4c07-b238-aca63e4e7ac8",
+          "ownerEmail":"a@mail.com",
+          "__v":0
+}]}

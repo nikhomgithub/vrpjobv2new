@@ -1,0 +1,232 @@
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-debian-10
+https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/
+https://help.dreamhost.com/hc/en-us/articles/216454967-How-to-reload-and-restart-Nginx-Dedicated-servers-only-
+https://dev.to/jpblancodb/configure-let-s-encrypt-nginx-in-ubuntu-bph
+https://dnslookup.online/
+
+For test ssl 
+https://www.ssllabs.com/ssltest/analyze.html?d=vrpshop.net
+
+$ cat /etc/os-release
+$ apt-get update
+$ nginx -t
+$ /etc/init.d/nginx reload
+$ apt-get install python-certbot-nginx
+$ apt-get install cron
+$ apt-get install nano
+$ apt-get install ufw
+
+$sudo docker exec -it containerId bash
+
+$ certbot --nginx -d your_domain -d www.your_domain
+
+$certbot renew --dry-run
+
+create image from container which from std image 
+$sudo docker commit 643442b29a3f test/test
+
+$sudo docker login 
+    Username:nikhomdoc
+    password:boxbox
+
+push to dockerhub
+$sudo docker push test/test 
+////////////////////////////////////////
+create docker network between 2 docker-compose.yml
+$ docker network create external-example
+
+
+
+=:  If an equal sign is used, this block will be considered 
+    a match if the request URI exactly matches the location given.
+
+~:  If a tilde modifier is present, this location will be 
+    interpreted as a case-sensitive regular expression match.
+
+~*: If a tilde and asterisk modifier is used, the location 
+    block will be interpreted as a case-insensitive regular expression match.
+
+^~: If a carat and tilde modifier is present, and if this 
+    block is selected as the best non-regular expression match, 
+    regular expression matching will not take place.
+
+~ ^/BlogPlanet(/|/index\.php)$
+
+//=============================
+check cpu core in different way
+grep -m 1 'cpu cores' /proc/cpuinfo
+
+check cpu core with pid per core
+lscpu | grep -E '^Thread|^Core|^Socket|^CPU\('
+
+
+//==============================================
+mynginx_vrpjob  | 2021/06/14 03:35:58 [emerg] 1#1: 
+   open() "/etc/letsencrypt/options-ssl-nginx.conf" failed (2: No such file or directory) 
+   in /etc/nginx/conf.d/myconfig.conf:81
+
+mynginx_vrpjob  | nginx: [emerg] 
+   open() "/etc/letsencrypt/options-ssl-nginx.conf" failed (2: No such file or directory) 
+   in /etc/nginx/conf.d/myconfig.conf:81
+
+
+
+==============================
+==============================
+file myconfig.conf ที่ได้หลังจาก $ certbot --nginx -d your_domain
+
+upstream project{
+    server server_vrpjob:3001;
+}
+
+server {
+    server_name  varaporn.net www.varaporn.net;
+    #server_name  localhost;
+    root   /usr/share/nginx/html;
+    index index.html;
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ /(home+[\/]+[a-zA-Z0-9]*|home){
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html;
+    }
+
+    location /yahoo {
+    #    proxy_pass http://127.0.0.1;
+        proxy_pass http://www.yahoo.com;
+    }
+    location /test { proxy_pass http://project; }
+    location /upload { proxy_pass http://project; }
+
+    location = /pageshop { 
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html; 
+    }
+    location = /pageuser { 
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html; 
+    }
+    location = /pagebasicdata { 
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html; 
+    }
+    location = /pagejob { 
+        types {}
+        default_type text/html;
+        alias /usr/share/nginx/html/index.html; 
+    }
+
+    location /shop { proxy_pass http://project; }
+    location /user { proxy_pass http://project; }
+    location /basicdata { proxy_pass http://project; }
+    location /job { proxy_pass http://project; }
+    
+    location /vrp1get { proxy_pass http://project; }
+    location /vrp2get { proxy_pass http://project; }
+    location /vrp3get { proxy_pass http://project; }
+    location /vrp4get { proxy_pass http://project; }
+
+    location /vrp1rec { proxy_pass http://project; }
+    location /vrp2rec { proxy_pass http://project; }
+    location /vrp3rec { proxy_pass http://project; }
+    location /vrp4rec { proxy_pass http://project; }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }   
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/varaporn.net/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/varaporn.net/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+
+
+
+
+    
+
+
+
+
+
+
+server {
+    if ($host = varaporn.net) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen       80;
+    listen  [::]:80;
+    server_name  varaporn.net www.varaporn.net;
+    return 404; # managed by Certbot
+
+}
+
+
+//==================================
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
